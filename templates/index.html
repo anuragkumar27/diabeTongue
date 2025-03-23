@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiabeTongue - Diabetes Prediction Through Tongue Analysis</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo-container">
+          <img
+            src="{{url_for('static', filename='images/tongue_doodle.svg')}}"
+            alt="DiabeTongue Logo"
+            class="logo"
+          />
+          <h1>DiabeTongue</h1>
+        </div>
+        <p class="tagline">Diabetes Prediction Through Tongue Analysis</p>
+      </header>
+
+      <section class="intro-section">
+        <div class="intro-text">
+          <h2>How It Works</h2>
+          <p>
+            Traditional Chinese Medicine has long recognized the connection
+            between tongue appearance and health conditions. Our advanced AI
+            analyzes your tongue image to detect potential signs of diabetes.
+          </p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-icon">
+                <img src="{{ url_for('static', filename='images/upload_icon.svg') }}" alt="Upload Icon" />
+              </div>
+              <p>Upload a clear image of your tongue</p>
+            </div>
+            <div class="step">
+              <div class="step-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <p>Our AI analyzes the image</p>
+            </div>
+            <div class="step">
+              <div class="step-icon">
+                <img src="static/images/result_icon.svg" alt="Result Icon" />
+              </div>
+              <p>Receive your prediction results</p>
+            </div>
+          </div>
+        </div>
+        <div class="intro-image">
+          <img
+            src="static/images/doctor_doodle.svg"
+            alt="Doctor Illustration"
+          />
+        </div>
+      </section>
+
+      <section class="upload-section">
+        <h2>Upload Your Tongue Image</h2>
+        <div class="upload-container">
+          <form
+            action="/predict"
+            method="post"
+            enctype="multipart/form-data"
+            id="upload-form"
+          >
+            <div class="basic-info">
+              <div class="form-group">
+                <label for="name">Your Name (Optional):</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="age">Age:</label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    placeholder="Age"
+                    min="1"
+                    max="120"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="gender">Gender:</label>
+                  <select id="gender" name="gender">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="upload-area">
+              <div class="upload-dropzone" id="upload-dropzone">
+                <input
+                  type="file"
+                  name="file"
+                  id="tongue-image"
+                  accept="image/*"
+                  required
+                />
+                <div class="upload-prompt">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Drag & drop your tongue image or click to browse</p>
+                  <small
+                    >For best results, use natural lighting and capture your
+                    entire tongue</small
+                  >
+                </div>
+                <div
+                  class="image-preview-container"
+                  id="image-preview-container"
+                >
+                  <img id="image-preview" src="" alt="Image preview" />
+                  <button type="button" id="change-image">Change Image</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="upload-guidelines">
+              <h3>
+                <i class="fas fa-lightbulb"></i> Tips for a Good Tongue Photo:
+              </h3>
+              <ul>
+                <li>Use natural daylight if possible</li>
+                <li>Stick out your tongue fully</li>
+                <li>Keep your mouth open wide</li>
+                <li>Take the photo straight-on, not at an angle</li>
+                <li>Avoid eating colored foods or drinks 2 hours before</li>
+              </ul>
+            </div>
+
+            <button type="submit" class="analyze-btn">Analyze My Tongue</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Tongue Diagnosis & Diabetes</h2>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-history"></i>
+            </div>
+            <h3>Tongue Diagnosis History</h3>
+            <p>
+              Tongue diagnosis has been a cornerstone of Traditional Chinese
+              Medicine for over 2,000 years, providing insights into internal
+              health conditions.
+            </p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <img src="static/images/diabetes_icon.svg" alt="Diabetes Icon" />
+            </div>
+            <h3>Diabetes & Your Tongue</h3>
+            <p>
+              Changes in tongue color, coating, and texture can indicate blood
+              sugar imbalances. Diabetes often manifests as a thick coating or
+              distinct tongue cracks.
+            </p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Our AI Technology</h3>
+            <p>
+              Our advanced machine learning algorithms analyze thousands of
+              tongue features to detect subtle patterns associated with
+              diabetes.
+            </p>
+          </div>
+        </div>
+        <div class="disclaimer">
+          <p>
+            <strong>Disclaimer:</strong> This tool is intended for educational
+            purposes only and should not replace professional medical advice.
+            Always consult with a healthcare provider for proper diagnosis and
+            treatment of diabetes.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          &copy; 2025 DiabeTongue - Diabetes Prediction Through Tongue Analysis
+        </p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="35" fill="#4A6FDC" opacity="0.1"/>
+  
+  <!-- Upload container -->
+  <rect x="20" y="25" width="40" height="35" rx="5" fill="white" stroke="#4A6FDC" stroke-width="2" stroke-dasharray="4,2"/>
+  
+  <!-- Upload arrow -->
+  <path d="M40,50 L40,30" stroke="#4A6FDC" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30,40 L40,30 L50,40" stroke="#4A6FDC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Image icon -->
+  <rect x="30" y="50" width="20" height="15" rx="2" fill="#63C7B2" opacity="0.8"/>
+  <circle cx="35" cy="55" r="2" fill="white"/>
+  <path d="M30,60 L38,55 L50,65" stroke="white" stroke-width="1" fill="none"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="15" cy="15" r="5" fill="none" stroke="#63C7B2" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="65" cy="15" r="4" fill="none" stroke="#63C7B2" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="65" cy="65" r="6" fill="none" stroke="#FF8A5B" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="15" cy="65" r="4" fill="none" stroke="#FF8A5B" stroke-width="1.5" stroke-dasharray="2,1"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Circular background -->
+  <circle cx="50" cy="50" r="45" fill="#4A6FDC" opacity="0.1"/>
+  
+  <!-- Blood drop -->
+  <path d="M50,10 C60,25 70,40 70,60 C70,75 60,85 50,85 C40,85 30,75 30,60 C30,40 40,25 50,10 Z" fill="#FF5757" stroke="#E03E3E" stroke-width="2"/>
+  
+  <!-- Glucose molecule representation -->
+  <circle cx="50" cy="50" r="15" fill="white" stroke="#2D3748" stroke-width="2"/>
+  
+  <!-- Glucose bonds -->
+  <line x1="50" y1="35" x2="50" y2="25" stroke="#2D3748" stroke-width="2"/>
+  <line x1="50" y1="65" x2="50" y2="75" stroke="#2D3748" stroke-width="2"/>
+  <line x1="35" y1="50" x2="25" y2="50" stroke="#2D3748" stroke-width="2"/>
+  <line x1="65" y1="50" x2="75" y2="50" stroke="#2D3748" stroke-width="2"/>
+  <line x1="40" y1="40" x2="33" y2="33" stroke="#2D3748" stroke-width="2"/>
+  <line x1="60" y1="60" x2="67" y2="67" stroke="#2D3748" stroke-width="2"/>
+  <line x1="40" y1="60" x2="33" y2="67" stroke="#2D3748" stroke-width="2"/>
+  <line x1="60" y1="40" x2="67" y2="33" stroke="#2D3748" stroke-width="2"/>
+  
+  <!-- Blood cells -->
+  <circle cx="60" cy="20" r="5" fill="#FF8A8A" opacity="0.7"/>
+  <circle cx="30" cy="25" r="4" fill="#FF8A8A" opacity="0.7"/>
+  <circle cx="70" cy="70" r="6" fill="#FF8A8A" opacity="0.7"/>
+  <circle cx="25" cy="75" r="5" fill="#FF8A8A" opacity="0.7"/>
+</svg>

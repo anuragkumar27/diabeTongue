@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="35" fill="#4A6FDC" opacity="0.1"/>
+  
+  <!-- Clipboard background -->
+  <rect x="25" y="15" width="30" height="45" rx="3" fill="white" stroke="#2D3748" stroke-width="2"/>
+  
+  <!-- Clipboard top -->
+  <rect x="25" y="15" width="30" height="7" rx="3" fill="#63C7B2"/>
+  
+  <!-- Clipboard clip -->
+  <rect x="37" y="13" width="6" height="10" rx="2" fill="#A0AEC0"/>
+  
+  <!-- Checklist items -->
+  <line x1="30" y1="30" x2="50" y2="30" stroke="#2D3748" stroke-width="1.5"/>
+  <line x1="30" y1="36" x2="50" y2="36" stroke="#2D3748" stroke-width="1.5"/>
+  <line x1="30" y1="42" x2="50" y2="42" stroke="#2D3748" stroke-width="1.5"/>
+  <line x1="30" y1="48" x2="45" y2="48" stroke="#2D3748" stroke-width="1.5"/>
+  
+  <!-- Result checkmark -->
+  <circle cx="40" cy="60" r="12" fill="#48BB78"/>
+  <path d="M34,60 L38,64 L46,56" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="15" cy="25" r="4" fill="none" stroke="#FF8A5B" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="65" cy="25" r="5" fill="none" stroke="#FF8A5B" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="60" cy="65" r="6" fill="none" stroke="#63C7B2" stroke-width="1.5" stroke-dasharray="2,1"/>
+  <circle cx="20" cy="65" r="5" fill="none" stroke="#63C7B2" stroke-width="1.5" stroke-dasharray="2,1"/>
+</svg>

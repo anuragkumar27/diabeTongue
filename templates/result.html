@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiabeTongue - Your Results</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo-container">
+          <img
+            src="static/images/tongue_doodle.svg"
+            alt="DiabeTongue Logo"
+            class="logo"
+          />
+          <h1>DiabeTongue</h1>
+        </div>
+        <h1>Prediction = {{prediction}}</h1>
+        <p class="tagline">Diabetes Prediction Through Tongue Analysis</p>
+      </header>
+
+      <section class="result-section">
+        <h2>Your Analysis Results</h2>
+
+        <div class="patient-info">
+          <h3>Patient Information</h3>
+          <p><strong>Name:</strong> {{ name }}</p>
+          <p><strong>Age:</strong> {{ age }}</p>
+          <p><strong>Gender:</strong> {{ gender }}</p>
+        </div>
+
+        <div
+          class="result-container {% if prediction > 0.5 %}negative-result{% else %}positive-result{% endif %}"
+        >
+          <div class="result-header">
+            <h3>Diabetes Prediction</h3>
+            <div class="confidence">
+              <div class="confidence-meter">
+                <div
+                  class="confidence-level"
+                  style="width: {{ confidence }}%"
+                ></div>
+              </div>
+              <span>{{ confidence }}% confidence</span>
+            </div>
+          </div>
+
+          <div class="result-content">
+            <div class="result-icon">
+              {% if prediction == 'positive' %}
+              <i class="fas fa-exclamation-triangle"></i>
+              {% else %}
+              <i class="fas fa-check-circle"></i>
+              {% endif %}
+            </div>
+            <div class="result-text">
+              {% if prediction and prediction < 0.5 %}
+              <h4>Potential Diabetes Indicators Detected</h4>
+              <p>
+                Based on your tongue image analysis, we've detected patterns
+                that may be associated with diabetes. We recommend consulting
+                with a healthcare professional for proper diagnosis.
+              </p>
+              {% else %}
+              <h4>No Significant Diabetes Indicators Detected</h4>
+              <p>
+                Based on your tongue image analysis, we did not detect patterns
+                strongly associated with diabetes. However, this is not a
+                definitive medical diagnosis.
+              </p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div class="tongue-analysis">
+          <h3>Tongue Analysis Details</h3>
+          <div class="analysis-details">
+            <div class="analysis-item">
+              <div class="analysis-label">Tongue Coating</div>
+              <div class="analysis-value">{{ coating }}</div>
+            </div>
+            <div class="analysis-item">
+              <div class="analysis-label">Tongue Color</div>
+              <div class="analysis-value">{{ color }}</div>
+            </div>
+            <div class="analysis-item">
+              <div class="analysis-label">Tongue Shape</div>
+              <div class="analysis-value">{{ shape }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="next-steps">
+          <h3>What to Do Next</h3>
+          <div class="steps-container">
+            {% if prediction == 'positive' %}
+            <div class="next-step">
+              <div class="step-icon">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <div class="step-content">
+                <h4>Consult a Doctor</h4>
+                <p>
+                  Schedule an appointment with a healthcare provider for proper
+                  testing and diagnosis.
+                </p>
+              </div>
+            </div>
+            <div class="next-step">
+              <div class="step-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <div class="step-content">
+                <h4>Get Blood Tests</h4>
+                <p>
+                  Ask your doctor about an A1C test and fasting blood glucose
+                  test.
+                </p>
+              </div>
+            </div>
+            <div class="next-step">
+              <div class="step-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="step-content">
+                <h4>Lifestyle Assessment</h4>
+                <p>
+                  Consider evaluating your diet, exercise habits, and stress
+                  levels.
+                </p>
+              </div>
+            </div>
+            {% else %}
+            <div class="next-step">
+              <div class="step-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="step-content">
+                <h4>Regular Check-ups</h4>
+                <p>
+                  Continue with regular health check-ups, especially if you have
+                  risk factors for diabetes.
+                </p>
+              </div>
+            </div>
+            <div class="next-step">
+              <div class="step-icon">
+                <i class="fas fa-apple-alt"></i>
+              </div>
+              <div class="step-content">
+                <h4>Maintain Healthy Habits</h4>
+                <p>
+                  Continue with a balanced diet, regular exercise, and healthy
+                  lifestyle choices.
+                </p>
+              </div>
+            </div>
+            <div class="next-step">
+              <div class="step-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="step-content">
+                <h4>Know Risk Factors</h4>
+                <p>
+                  Stay informed about diabetes risk factors and symptoms to
+                  monitor.
+                </p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="disclaimer-box">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>
+            <strong>Important Disclaimer:</strong> This analysis is not a
+            medical diagnosis. The DiabeTongue tool is designed for educational
+            purposes only and should not replace professional medical advice,
+            diagnosis, or treatment. Always consult with a qualified healthcare
+            provider for proper evaluation of diabetes.
+          </p>
+        </div>
+
+        <div class="action-buttons">
+          <a href="{{ url_for('index') }}" class="btn-secondary"
+            ><i class="fas fa-redo"></i> Try Another Analysis</a
+          >
+          <button class="btn-primary" onclick="window.print()">
+            <i class="fas fa-print"></i> Print Results
+          </button>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          &copy; 2023 DiabeTongue - Diabetes Prediction Through Tongue Analysis
+        </p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
